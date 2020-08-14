@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "432369784824",
+    "firebase_url": "https://funnystudy-d7b8c.firebaseio.com",
+    "project_id": "funnystudy-d7b8c",
+    "storage_bucket": "funnystudy-d7b8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432369784824:android:b62c1a8aee75943ed4680d",
+        "android_client_info": {
+          "package_name": "com.sullivan.funnystudy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432369784824-room1bbuqnrntuta6a46qa2uuo2a1gtf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRopg6RS4dwKtJXBuxSCChqn1Ku1TmKco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432369784824-room1bbuqnrntuta6a46qa2uuo2a1gtf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
