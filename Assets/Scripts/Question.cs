@@ -31,7 +31,7 @@ public class Question : MonoBehaviour
     public List<Quest> m_Questions;     // 질문들을 담을 리스트
 
     private int QIndex = 0;     // 현재 문제 순서
-    public int GetCurrentQuestionIdx() => QIndex;       // GetCurrentQuestionIdx() { return QIndex; } 와 같다.
+    
 
     private QuestAnswerBtnType Result;     // 문제 답이 속한 번호 위치
 
@@ -43,6 +43,7 @@ public class Question : MonoBehaviour
     public Text m_QuestionText;             // 질문 UI
     public Text[] m_AnswerText = new Text[3];       // 답변 UI
 
+    public int GetCurrentQuestionIdx() => QIndex;       // GetCurrentQuestionIdx() { return QIndex; } 와 같다.
     public int GetMaxQuestionCount() => m_maxQuestionCount;     // 최대 문제 개수
     private void CorrectQuestion() { ++m_correctQuestion; }
     public int GetCorrectQuestion() => m_correctQuestion;       // 현재 맞춘 문제 개수
@@ -115,6 +116,10 @@ public class Question : MonoBehaviour
         else    // 오답
             return false;
     }
+    /// <summary>
+    /// 답변 버튼을 눌렀을 때 실행될 함수
+    /// </summary>
+    /// <param name="type">눌른 버튼의 위치를 담는 변수(첫번째 : 1, 두번째 : 2, 세번째 : 3)</param>
     public void OnClickSubmitBtn(int type)
     {
         if (IsCorrectAnswer((QuestAnswerBtnType)type))
@@ -122,8 +127,6 @@ public class Question : MonoBehaviour
             m_QuestionText.text = string.Format("정답입니다 !\n {0}", m_QuestionText.text);
             CorrectQuestion();      // 정답일 때 맞춘 문제 카운트를 1 증가시킴
             Invoke("LoadQuestion", 2.0f);       // 2초뒤에 LoadQuestion이라는 함수를 실행시켜 준다.
-            //DeleteQuest(GetCurrentQuestionIdx());     // 정답일때 방금 문제를 삭제함
-
                                                     //Todo:
             m_Score.Increase(100);      //점수를 100 증가시킨다.
             //
@@ -132,16 +135,11 @@ public class Question : MonoBehaviour
         {
             m_QuestionText.text = string.Format("오답입니다 ! !\n {0}", m_QuestionText.text);
             Invoke("LoadQuestion", 2.0f);
-            //DeleteQuest(GetCurrentQuestionIdx());         // 오답일때 방금 문제를 삭제함
-
-            //Todo:
-
-            //
         }
     }
     private void Start()
     {
-        m_maxQuestionCount = m_Questions.Count;
-        LoadQuestion();
+        m_maxQuestionCount = m_Questions.Count;     // 게임이 시작되었을 때 최대 문제 개수를 maxQuestionCount 변수에 담음
+        LoadQuestion();     //문제 로드
     }
 }
